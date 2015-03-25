@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>¬°¬Ý¬Ú¬Þ¬á¬Ú¬Ñ¬Õ¬í</title>
+<title>Olimpiad</title>
 </head>
 <body>
-	¬³¬á¬Ú¬ã¬à¬Ü ¬°¬Ý¬Ú¬Þ¬á¬Ú¬Ñ¬Õ
+	List of Olimpiad's
 </body>
 </html>

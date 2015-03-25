@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/control")
-public class control extends HttpServlet {
+public class taskController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-    public control() {
+    public taskController() {
         super();
       
     }

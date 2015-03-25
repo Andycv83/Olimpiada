@@ -5,9 +5,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Task</title>
 </head>
-<body>
-
-Add or update task
-    
+<body>   
+<%
+	String login = request.getParameter("login");
+	String password = request.getParameter("Password");
+	String LoginIn = request.getParameter("enter");
+	String register = request.getParameter("registration");
+%>
+	<p>Login <%=login %>  </p>
+	<p>Password <%=password %>  </p>
+	<p>button login <%=LoginIn %>  </p>
+	<p>button register <%=register %>  </p>
+	
 </body>
 </html>

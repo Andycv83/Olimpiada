@@ -6,6 +6,6 @@
 <title>Olimpiad</title>
 </head>
 <body>
-	List of Olimpiad's
+	There are all OLIMPIADS
 </body>
 </html>

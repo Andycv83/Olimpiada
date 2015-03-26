@@ -3,13 +3,17 @@
 <html>
 	<head><title>Hello</title></head>
 	<body>
+ 	
 		<p>Hello World!</p>
-		<form action="task.jsp" method="GET">
-			Login: <input type="text" name="login"/>
-			Password: <input type="text" name="Password"/>
-			<input type="submit" name="enter" value="Login"/>
-			<input type="submit" name="registration" value="Register"/>
+		
+		<form action=olimpiadController" method="POST">
+			<br> List of Olimpiad :
+			<br> Olimpiad 1
+			<br> Olimpiad 2
+			<br> Add Olimpiad: <input type="text" name="addOlimpiad"/>
+			<input type="submit" name="buttonAdd" value="Add"/>
 		</form>		
-
+	
+			
 	</body>
 </html>

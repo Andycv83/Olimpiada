@@ -7,15 +7,12 @@
 </head>
 <body>   
 <%
-	String login = request.getParameter("login");
-	String password = request.getParameter("Password");
-	String LoginIn = request.getParameter("enter");
-	String register = request.getParameter("registration");
+	String AddOlimpiad = request.getParameter("addOlimpiad");
+
+	String Button = request.getParameter("buttonAdd");
 %>
-	<p>Login <%=login %>  </p>
-	<p>Password <%=password %>  </p>
-	<p>button login <%=LoginIn %>  </p>
-	<p>button register <%=register %>  </p>
+	<p>Olimpiada <%=AddOlimpiad %>  </p>
+	<p>button Add <%=Button %>  </p>
 	
 </body>
 </html>

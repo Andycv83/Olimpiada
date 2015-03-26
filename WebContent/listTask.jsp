@@ -6,6 +6,12 @@
 <title>Collection Task</title>
 </head>
 <body>
-	All task in this Olimpiada
+<%
+	String AddOlimpiad = request.getParameter("addOlimpiad");
+	String Button = request.getParameter("buttonAdd");
+%>
+	<p>Olimpiada <%=AddOlimpiad %>  </p>
+	<p>button Add <%=Button %>  </p>
+	
 </body>
 </html>

@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+
 import object.*;
 import dbo.DbService;
 
@@ -26,8 +29,16 @@ public class Main {
 		Set <Task> taskCollection = new LinkedHashSet <Task>();
 		
 		Olimpiad biology = new Olimpiad();
-		biology.setName("Biology");		
+		biology.setName("Biology");
+		biology.setStart(new Date());
+		biology.setEnd(new Date());
 		biology.setId(1);
+		
+		Olimpiad mathematics = new Olimpiad();
+		mathematics.setName("Mathematics");
+		mathematics.setStart(new Date());
+		mathematics.setEnd(new Date());
+		mathematics.setId(2);
 				
 		Task task1= new Task();		
 		task1.setId(1);
@@ -44,7 +55,7 @@ public class Main {
 		Task task3= new Task();
 		task3.setId(3);
 		task3.setDescription("Third task for begginer Third task for begginer  Third task for begginer ");
-		task3.setOlimpId(1);
+		task3.setOlimpId(2);
 		taskCollection.add(task3);
 		
 		Task task4= new Task();
@@ -59,9 +70,7 @@ public class Main {
 		task5.setOlimpId(1);
 		taskCollection.add(task5);
 				
-		biology.setTasksList(taskCollection);
-		
-	db.updateTask(task2);
+		biology.setTasksList(taskCollection);	
 		
 		
 /*	JAXBContext context = JAXBContext.newInstance(Olimpiad.class);

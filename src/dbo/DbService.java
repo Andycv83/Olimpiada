@@ -108,5 +108,24 @@ public class DbService {
             e.printStackTrace();
         }
 	} 
+    public Set <Olimpiad> getAllOlimpiad() {
+    	Set <Olimpiad> olimp = new LinkedHashSet<Olimpiad>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("select * from OLIMPIAD");
+            while (rs.next()) {
+                Olimpiad o = new Olimpiad();
+                o.setId(rs.getInt("id"));
+                o.setName(rs.getString("name"));
+                o.setStart(rs.getDate("start"));
+                o.setEnd(rs.getDate("end"));
+                olimp.add(o);
+                }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return olimp;
+    }
 		
 }

@@ -8,7 +8,6 @@
 <body>   
 <%
 	String AddOlimpiad = request.getParameter("addOlimpiad");
-
 	String Button = request.getParameter("buttonAdd");
 %>
 	<p>Olimpiada <%=AddOlimpiad %>  </p>

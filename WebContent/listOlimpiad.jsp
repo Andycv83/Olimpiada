@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Olimpiad</title>
+<title>List of Olimpiad </title>
 </head>
 <body>
-	There are all OLIMPIADS
+
 </body>
 </html>

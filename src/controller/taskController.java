@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import object.Task;
 import dbo.DbService;
 
-@WebServlet("/taskController")
+@WebServlet(urlPatterns="/taskController")
 public class taskController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -43,24 +43,31 @@ public class taskController extends HttpServlet {
 				e.printStackTrace();
 			}
             forward = LIST_TASK;
-            request.setAttribute("tasks", dbs.getAllTask());    
+            request.setAttribute("tasks", dbs.getAllTask());
+            
+            
         } else if (action.equalsIgnoreCase("EDIT")){
             forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
             Task task = dbs.getTaskById(id);
             request.setAttribute("task", task);
-        } else if (action.equalsIgnoreCase("listTask")){
-            forward = LIST_TASK;
-            request.setAttribute("tasks", dbs.getAllTask());
-        } else {
+        } 
+        else {
             forward = INSERT_OR_EDIT;
         }
+        
+        RequestDispatcher view = request.getRequestDispatcher(forward);
+        view.forward(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
         Task task = new Task();
+        System.out.println(request.getParameter("id"));
+        System.out.println(request.getParameter("description"));
+        System.out.println(request.getParameter("OlimpId"));
+        
         task.setId(Integer.parseInt(request.getParameter("id")));
         task.setDescription(request.getParameter("description"));
         task.setOlimpId(Integer.parseInt(request.getParameter("OlimpId")));

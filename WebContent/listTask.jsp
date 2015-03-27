@@ -12,7 +12,9 @@
 <title>Collection Task</title>
 </head>
 <body>
-  
+
+  	<form method="GET" action='taskController' name="EDIT">
+  	
     <table border=1>
        
             <tr>
@@ -31,8 +33,8 @@
                 <th><%=t.getId() %></th>
                 <th><%=t.getDescription()%></th>
                 <th><%=t.getOlimpId()%></th>
-                <td><a href="taskController?action=edit&id=<%= t.getId() %>"/>>Edit</a></td>
-                <td><a href="taskController?action=delete&id=<%=t.getId() %>"/>>Delete</a></td>
+                <td><a href="taskController?action=edit&id=<%= t.getId() %>"/>Edit</a></td>
+                <td><a href="taskController?action=delete&id=<%=t.getId() %>"/>Delete</a></td>
              </tr>
                <% }%>
       </table>

@@ -14,7 +14,7 @@ import object.Olimpiad;
 import dbo.DbService;
 import sun.rmi.server.Dispatcher;
 
-@WebServlet("/olimpiadController")
+@WebServlet(urlPatterns="/olimpiadController")
 
 public class olimpiadController {
 	private static final long serialVersionUID = 1L;

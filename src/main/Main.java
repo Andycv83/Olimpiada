@@ -26,7 +26,7 @@ public class Main {
 	
 		DbService db = new DbService();
 		
-		Set <Task> taskCollection = new LinkedHashSet <Task>();
+/*		Set <Task> taskCollection = new LinkedHashSet <Task>();
 		
 		Olimpiad biology = new Olimpiad();
 		biology.setName("Biology");
@@ -72,6 +72,16 @@ public class Main {
 				
 		biology.setTasksList(taskCollection);	
 		
+	*/	
+		
+		db.getAllOlimpiad();
+		
+	    Set <Olimpiad> olimp = db.getAllOlimpiad();
+		
+	    for (Olimpiad t : olimp) {
+
+	      System.out.println("Olimpiada : " + t.getName() + "  "
+	          + t.getId());
 		
 /*	JAXBContext context = JAXBContext.newInstance(Olimpiad.class);
 		    Marshaller marsh = context.createMarshaller();
@@ -87,7 +97,7 @@ public class Main {
 		    System.out.println("Output from our XML File: ");
 		    Unmarshaller um = context.createUnmarshaller();
 		    biology = (Olimpiad) um.unmarshal(new FileReader(QUESTION_XML));
-	*/    
+	    
 		    Set <Task> newTask = biology.getTasksList();
 		    		
 		    for (Task t : newTask) {
@@ -95,6 +105,7 @@ public class Main {
 		      System.out.println("Task: " + t.getId() + "  "
 		          + t.getDescription());
 		    }
-	    
-	}
+	*/   
+	    }
+	    }
 }

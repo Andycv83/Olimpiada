@@ -2,7 +2,8 @@
 
 <%@ page import="java.util.*" %> 
 <%@ page import="dbo.DbService" %> 
-<%@ page import="object.*" %> 
+<%@ page import="object.*" %>
+<%@ page import="org.sqlite.*" %> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,37 +17,25 @@
                 <th>name</th>
                 <th>start</th>
                 <th>end</th>
-                <th colspan=1>Action</th>
+                <th colspan=1>Action</th>              
             </tr>
-           <%		
-		DbService dbs = new DbService() ;
-
-//		Set<Olimpiad> allOlimpiad = dbs.getAllOlimpiad();
-		Olimpiad a1 = new Olimpiad();
-		Olimpiad a2 = new Olimpiad();
-		a1.setName("olimp1");
-		a1.setId(1);
-		a1.setStart(new Date());
-		a1.setEnd(new Date());
-		a2.setName("olimp2");
-		a2.setId(2);
-		a2.setStart(new Date());
-		a2.setEnd(new Date());
-		Set<Olimpiad> allOlimpiad = new LinkedHashSet();
-		allOlimpiad.add(a1);
-		allOlimpiad.add(a2);
-		
-%>
-	
-<%	for(Olimpiad o : allOlimpiad){ %>
+ <%		
+	DbService dbs = new DbService() ;
+	Set<Olimpiad> allOlimpiad = dbs.getAllOlimpiad();
+%>	
+<%		for(Olimpiad o : allOlimpiad){ %>
 			 <tr>	
-               <td><%=o.getId() %></td>
-                <th><%=o.getName()%></th>
+                <th><%=o.getId() %></th>
+                <th>	<a href="listTask.jsp"><%=o.getName()%></a></th>
                 <th><%=o.getStart()%></th>
                 <th><%=o.getEnd()%></th>
-                <th colspan=1>Action</th></tr>
+                <th colspan=1>EDIT</th>
+             </tr>
                <% }%>
-            
-               	
+      <table/>
+      		<tr> </tr>
+             <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="button1()">    	
+          	<a href="http://google.com.ua">Link</a>
+      
 	</body>
 </html>

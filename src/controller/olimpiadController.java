@@ -16,7 +16,7 @@ import sun.rmi.server.Dispatcher;
 
 @WebServlet(urlPatterns="/olimpiadController")
 
-public class olimpiadController {
+public class olimpiadController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private static String LIST_OLIMPIAD = "/listOlimpiad.jsp";
 	private DbService dbs;
@@ -29,8 +29,8 @@ public class olimpiadController {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+		String s = request.getParameter("id");
+		System.out.println(s);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

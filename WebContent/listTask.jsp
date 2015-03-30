@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  	<form method="GET" action='taskController' name="EDIT">
+  	<form action="taskController" method="GET" >
   	
     <table border=1>
        
@@ -40,6 +40,6 @@
       </table>
       		<tr> </tr>
       		 <p><a href="taskController?action=insert">Add Task</a></p>
-	
+	</form>
 </body>
 </html>

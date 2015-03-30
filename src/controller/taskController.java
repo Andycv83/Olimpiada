@@ -70,7 +70,7 @@ public class taskController extends HttpServlet {
         
         task.setId(Integer.parseInt(request.getParameter("id")));
         task.setDescription(request.getParameter("description"));
-        task.setOlimpId(Integer.parseInt(request.getParameter("OlimpId")));
+        task.setOlimpId(Integer.parseInt(request.getParameter("olimpId")));
         
         int id = Integer.parseInt(request.getParameter("id"));
         if(id == 0)

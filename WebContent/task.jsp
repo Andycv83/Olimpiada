@@ -13,7 +13,7 @@
 </head>
 <body>   
 
-    <form method="GET" action="/taskController" name="Add Task">
+    <form method="POST" action="/taskController" name="Add Task">
     
         Task ID : <input type="text" name="id"> <br > 
         Description : <input type="text" name="description" > <br /> 

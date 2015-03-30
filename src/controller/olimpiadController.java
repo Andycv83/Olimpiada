@@ -30,7 +30,7 @@ public class olimpiadController extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String s = request.getParameter("id");
-		System.out.println(s);
+		System.out.println("HELLO");
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

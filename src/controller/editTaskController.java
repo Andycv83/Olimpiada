@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import object.Task;
 import dbo.DbService;
 
-@WebServlet(urlPatterns="/taskController")
-public class taskController extends HttpServlet {
+@WebServlet(urlPatterns="/editTaskController")
+public class editTaskController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static String LIST_TASK = "/listTask.jsp";
-	private static String INSERT_OR_EDIT = "/task.jsp";
+	private static String EDIT = "/editTask.jsp";
 	private DbService dbs;
 	
-    public taskController() {
+    public editTaskController() {
         super();
         dbs=new DbService();
       
@@ -30,57 +30,72 @@ public class taskController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
         String forward="";
         String action = request.getParameter("action");
 
-        if (action.equalsIgnoreCase("DELETE")){
-            int id = Integer.parseInt(request.getParameter("id"));
-            try {
-				dbs.deleteTask(id);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            forward = LIST_TASK;
-            request.setAttribute("tasks", dbs.getAllTask());
+        	if (action.equalsIgnoreCase("EDIT")){
+        		
+            forward = EDIT;
             
-            
-        } else if (action.equalsIgnoreCase("EDIT")){
-            forward = INSERT_OR_EDIT;
             int id = Integer.parseInt(request.getParameter("id"));
             Task task = dbs.getTaskById(id);
             request.setAttribute("task", task);
         }
         
         else {
-            forward = INSERT_OR_EDIT;
+            forward = EDIT;
         }
         
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
+*/        
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+      
+/*		String forward="";
+        String action = request.getParameter("action");
+		
+		if (action.equalsIgnoreCase("EDIT")){
+    		
+            forward = EDIT;
+            
+            int id = Integer.parseInt(request.getParameter("id"));
+            Task task = dbs.getTaskById(id);
+            request.setAttribute("task", task);
+		}else {
+            forward = EDIT;
+        }
+		
+		
+		
 		Task task = new Task();
+		
         task.setId(Integer.parseInt(request.getParameter("id")));
         task.setDescription(request.getParameter("description"));
         task.setOlimpId(Integer.parseInt(request.getParameter("olimpId")));
         
         String taskId = request.getParameter("id");
-        if(taskId.isEmpty())
         
-        {
-        	task.setId(Integer.parseInt(taskId));
-            dbs.addTask(task);
-        }
-        else
-        {
+ 
         	task.setId(Integer.parseInt(taskId));
             dbs.updateTask(task);
-        }   
+           
+        RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
+        request.setAttribute("tasks", dbs.getAllTask());
+        view.forward(request, response);
+        
+*/        	
+		Task task = new Task();
+		
+        task.setId(Integer.parseInt(request.getParameter("id")));
+        task.setDescription(request.getParameter("description"));
+        task.setOlimpId(Integer.parseInt(request.getParameter("olimpId")));
+
+            dbs.updateTask(task);
+            
         RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
         request.setAttribute("tasks", dbs.getAllTask());
         view.forward(request, response);

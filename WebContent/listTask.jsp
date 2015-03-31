@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  	<form action="taskController" method="GET" >
+  	<form >
   	
     <table border=1>
        
@@ -21,8 +21,8 @@
                 <th>id</th>
                 <th>description</th>
                 <th>olimpiadId</th>
-                <th colspan=1>Action</th>
-                <th colspan=1>Action</th>                
+                <th colspan=1></th>
+                <th colspan=1></th>                
             </tr>
  <%		
 	DbService dbs = new DbService() ;
@@ -33,13 +33,20 @@
                 <th><%=t.getId() %></th>
                 <th><%=t.getDescription()%></th>
                 <th><%=t.getOlimpId()%></th>
-                <td><a href="taskController?action=edit&id=<%= t.getId() %>"/>Edit</a></td>
-                <td><a href="taskController?action=delete&id=<%=t.getId() %>"/>Delete</a></td>
+<!--                  <td><a href="editTaskController?action=edit&id= <%= t.getId() %>"/>Edit</a></td>    -->
+				
+				<th><form action="/editTask.jsp">
+					<input type=hidden name="idTask" value="<%=t.getId() %>">
+					<input type="submit" value="edit">
+				</form></th>					
+                <td><a href="deleteTaskController?action=delete&id=<%=t.getId() %>"/>Delete</a></td>
              </tr>
                <% }%>
       </table>
       		<tr> </tr>
-      		 <p><a href="taskController?action=insert">Add Task</a></p>
+      		 <p><a href="addTask.jsp">Add Task</a></p>
 	</form>
+	
+	
 </body>
 </html>

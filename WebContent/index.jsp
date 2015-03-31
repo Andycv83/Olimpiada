@@ -4,6 +4,6 @@
 <html>
 	<head><title>Olimpiads</title></head>
 	<body>	
-		<jsp:forward page="listOlimpiad.jsp" />      
+		<jsp:forward page="/listOlimpiad.jsp" />      
 	</body>
 </html>

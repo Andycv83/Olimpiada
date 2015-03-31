@@ -28,25 +28,34 @@
 	DbService dbs = new DbService() ;
 	Set<Task> tasks = dbs.getAllTask();
 %>	
-<%		for(Task t : tasks){ %>
-			 <tr>	
-                <th><%=t.getId() %></th>
-                <th><%=t.getDescription()%></th>
-                <th><%=t.getOlimpId()%></th>
-<!--                  <td><a href="editTaskController?action=edit&id= <%= t.getId() %>"/>Edit</a></td>    -->
+<%	for(Task t : tasks){ %>
+		<tr>	
+             <th><%=t.getId() %></th>
+             <th><%=t.getDescription()%></th>
+             <th><%=t.getOlimpId()%></th>			
 				
-				<th><form action="/editTask.jsp">
+			 <th>
+			    <form action="/editTask.jsp">
 					<input type=hidden name="idTask" value="<%=t.getId() %>">
 					<input type="submit" value="edit">
-				</form></th>					
-                <td><a href="deleteTaskController?action=delete&id=<%=t.getId() %>"/>Delete</a></td>
-             </tr>
+				</form>				
+              </th>
+              
+              <th>
+                <form name="delete"  action ="/deleteTaskController" method = "GET" >  	
+					<td> 
+					<input name="taskId" type="hidden" value="<%=t.getId()%>">		
+				    <input type="submit"  value="Delete"> 			 					    
+					</td> 
+                </form>	   	
+             </th>	
+                  
+       </tr>
                <% }%>
       </table>
-      		<tr> </tr>
-      		 <p><a href="addTask.jsp">Add Task</a></p>
 	</form>
-	
-	
+			<form action="addTask.jsp" method="POST" name= "Add Task">
+					 <p><a href="addTask.jsp">Add Task</a></p>
+			</form>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <title>List of Olimpiad </title>
 </head>
 <body>
-	<form action="olimpiadController" method = "GET">
+	<form >
     <table border=1>
        
             <tr>
@@ -21,26 +21,32 @@
                 <th>end</th>
                 <th colspan=1>Action</th>              
             </tr>
+            
  <%		
 	DbService dbs = new DbService() ;
 	Set<Olimpiad> allOlimpiad = dbs.getAllOlimpiad();
 %>	
-<%		for(Olimpiad o : allOlimpiad){ %>
-			
-			
-			
-			 <tr>	
+<%		for(Olimpiad o : allOlimpiad){ %>		
+			 <tr>
+			 	
                 <th><%=o.getId() %></th>
-                <th>	<a href="listTask.jsp"><%=o.getName()%></a></th>
+                <th><a href="listTask.jsp"><%=o.getName()%></a></th>
                 <th><%=o.getStart()%></th>
                 <th><%=o.getEnd()%></th>
                 <th colspan=1>EDIT</th>
              </tr>
                <% }%>
       <table/>
-      		<tr> </tr>
-             <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="button1()">    	
-          	<a href="http://google.com.ua">Link</a>
 </form>
+     
+     <form action="olimpiadController" method = "GET">
+     
+     
+     
+    </form>      
+                <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="button1()">    	
+            	<a href="http://google.com.ua">Link</a>
+            	
+      </form>    	
 </body>
 </html>

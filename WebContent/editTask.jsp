@@ -8,13 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	    <form method="POST" action="/editTaskController">
-    
+	 <form method="GET" action="/editTaskController">
     		
-        Task ID :     <input type =text value="<%= request.getParameter("id")%>"> <br > 
-        Description : <input type="text" name="description" > <br /> 
-        Olimp Id :    <input type="text" name="olimpId"> <br /> 
-                      <input type="submit" value="Submit" />         
+Task ID :     <input type ="text" readonly="readonly" name = "idTask" value="<%= request.getParameter("idTask")%>" > <br > 
+Description : <input type="text" name="description" > <br /> 
+Olimp Id :    <input type="text" name="olimpId"> <br /> 
+               <input type="submit" value="Submit" />         
     </form>
 </body>
 </html>

@@ -31,8 +31,8 @@ public class deleteTaskController extends HttpServlet {
         String forward="";
         String action = request.getParameter("action");
 
-        if (action.equalsIgnoreCase("DELETE")){
-            int id = Integer.parseInt(request.getParameter("idTask"));
+     //   if (action.equalsIgnoreCase("DELETE")){
+            int id = Integer.parseInt(request.getParameter("taskId"));
             try {
 				dbs.deleteTask(id);
 			} catch (SQLException e) {
@@ -41,11 +41,11 @@ public class deleteTaskController extends HttpServlet {
 			}
             forward = LIST_TASK;
             request.setAttribute("tasks", dbs.getAllTask());
-        }
-        else {
+/*       }
+       else {
             forward = LIST_TASK;
         }
-        RequestDispatcher view = request.getRequestDispatcher(forward);
+ */       RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 	}
 

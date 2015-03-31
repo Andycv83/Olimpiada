@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import dbo.DbService;
 import object.Task;
 
-/**
- * Servlet implementation class AddTaskServlet
- */
 @WebServlet("/AddTaskController")
 public class AddTaskController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,13 +20,9 @@ public class AddTaskController extends HttpServlet {
 
     public AddTaskController() {
         super();
-        dbs=new DbService();
-      
+        dbs=new DbService();     
     }
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

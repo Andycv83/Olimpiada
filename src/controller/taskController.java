@@ -51,7 +51,8 @@ public class taskController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             Task task = dbs.getTaskById(id);
             request.setAttribute("task", task);
-        } 
+        }
+        
         else {
             forward = INSERT_OR_EDIT;
         }
@@ -62,30 +63,30 @@ public class taskController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-        Task task = new Task();
-        System.out.println(request.getParameter("id"));
-        System.out.println(request.getParameter("description"));
-        System.out.println(request.getParameter("OlimpId"));
         
+		Task task = new Task();
         task.setId(Integer.parseInt(request.getParameter("id")));
         task.setDescription(request.getParameter("description"));
         task.setOlimpId(Integer.parseInt(request.getParameter("olimpId")));
         
-        int id = Integer.parseInt(request.getParameter("id"));
-        if(id == 0)
+        String taskId = request.getParameter("id");
+        if(taskId.isEmpty())
+        
         {
+        	task.setId(Integer.parseInt(taskId));
             dbs.addTask(task);
         }
         else
         {
-            task.setId(id);
+        	task.setId(Integer.parseInt(taskId));
             dbs.updateTask(task);
-        }
+        }   
         RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
         request.setAttribute("tasks", dbs.getAllTask());
         view.forward(request, response);
+	}
+        
     }
-}
+
 
 

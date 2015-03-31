@@ -27,6 +27,8 @@
 %>	
 <%		for(Olimpiad o : allOlimpiad){ %>
 			
+			
+			
 			 <tr>	
                 <th><%=o.getId() %></th>
                 <th>	<a href="listTask.jsp"><%=o.getName()%></a></th>

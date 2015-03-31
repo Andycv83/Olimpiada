@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import object.Olimpiad;
+import object.Task;
 import dbo.DbService;
 import sun.rmi.server.Dispatcher;
 
@@ -19,6 +20,7 @@ import sun.rmi.server.Dispatcher;
 public class olimpiadController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private static String LIST_OLIMPIAD = "/listOlimpiad.jsp";
+	private static String LIST_TASK = "/listTask.jsp";
 	private DbService dbs;
 
 
@@ -29,8 +31,7 @@ public class olimpiadController extends HttpServlet{
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String s = request.getParameter("id");
-		System.out.println("HELLO");
+
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

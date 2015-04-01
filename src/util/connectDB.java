@@ -15,7 +15,7 @@ public class connectDB {
 	        else {
 	            try {
 	    			Class.forName("org.sqlite.JDBC").newInstance();		
-	    			connection = DriverManager.getConnection("jdbc:sqlite:C:/Documents and Settings/User/git/Olimpiada/files/OlimpDB.db");
+	    			connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/Andrey/workspace/Olimpiada/files/OlimpDB.db");
 	            } catch (ClassNotFoundException e) {
 	                e.printStackTrace();
 	            } catch (SQLException e) {

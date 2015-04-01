@@ -11,18 +11,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Collection Task</title>
 </head>
-<body>
-
-  	<form >
-  	
+<body> 	
     <table border=1>
        
             <tr>
                 <th>id</th>
                 <th>description</th>
                 <th>olimpiadId</th>
-                <th></th>
-    <!--             <th colspan=1></th>      -->           
+                <th colspan=2></th>              
             </tr>
  <%		
 	DbService dbs = new DbService() ;
@@ -44,12 +40,12 @@
 					<input type="submit" value="edit">
 			   		
 				</form>	
-				<form action ="/deleteTaskController" method = "GET" >  	
-					
-					<input type="hidden" name="taskId" value="<%=t.getId()%>">		
-				    <input type="submit"  value="Delete"> 			 					    
-					
-                </form>	
+			</td>
+			 <td>	
+				    <form action ="/deleteTaskController" method = "GET" >  					
+						<input type="hidden" name="taskId" value="<%=t.getId()%>">		
+				    	<input type="submit"  value="Delete"> 			 					    		
+                    </form>	
              </td>
              			
                          
@@ -60,7 +56,6 @@
        </tr>
                <% }%>
       </table>
-	</form>
 			<form action="addTask.jsp" method="POST" name= "Add Task">
 					 <p><a href="addTask.jsp">Add Task</a></p>
 			</form>

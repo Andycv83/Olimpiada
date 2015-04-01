@@ -11,25 +11,22 @@
 <title>List of Olimpiad </title>
 </head>
 <body>
-	<form >
-    <table border=1>
-       
+    <table border=1>   
             <tr>
                 <th>id</th>
                 <th>name</th>
                 <th>start</th>
                 <th>end</th>
                 <th colspan=1>Action</th>              
-            </tr>
-            
+            </tr>      
  <%		
 	DbService dbs = new DbService() ;
 	Set<Olimpiad> allOlimpiad = dbs.getAllOlimpiad();
 %>	
 <%		for(Olimpiad o : allOlimpiad){ %>		
 			 <tr>
-                <th>  <%=o.getId()%></th>                 
-                <th> <%=o.getName()%></th>
+                <th><%=o.getId()%></th>                 
+                <th><%=o.getName()%></th>
                 <th><%=o.getStart()%></th>
                 <th><%=o.getEnd()%></th>                 
               	<th>
@@ -40,9 +37,8 @@
 				</th> 
 				<% }%>
 			</tr>	 
-      <table/>
-</form>     
-		<form name="add" action= "/olimpiadController" method= "post">	
+      <table/>    
+		 <form name="add" action= "/olimpiadController" method= "post">	
 		 	
                 <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="">    	
         </form>    	  	

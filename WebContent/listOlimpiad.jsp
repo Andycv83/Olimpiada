@@ -39,8 +39,7 @@
 			</tr>	 
       <table/>    
 		 <form name="add" action= "/olimpiadController" method= "post">	
-		 	
-                <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="">    	
+		 	<p><a href="addOlimpiad.jsp">Add Olimpiad</a></p>		
         </form>    	  	
 </body>
 </html>

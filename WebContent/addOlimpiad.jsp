@@ -9,8 +9,8 @@
 <body>
 	    <form method="POST" action="/olimpiadController">
     
-        Olimpiad ID :     <input type="text"  name="id"> <br > 
-        Name :        <input type="text" name="description" > <br /> 
+        Olimpiad ID : <input type="text"  name="id"> <br > 
+        Name :        <input type="text" name="name" > <br /> 
                       <input type="submit" value="Submit" />         
     </form>
 </body>

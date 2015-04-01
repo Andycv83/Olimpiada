@@ -56,7 +56,7 @@ public class olimpiadController extends HttpServlet{
 
             dbs.addOlimpiad(olimpiad);
             
-        RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
+        RequestDispatcher view = request.getRequestDispatcher(LIST_OLIMPIAD);
         request.setAttribute("olimps", dbs.getAllOlimpiad());
         view.forward(request, response);
 	}	

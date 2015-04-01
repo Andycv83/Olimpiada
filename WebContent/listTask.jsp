@@ -57,7 +57,7 @@
                <% }%>
       </table>
 			<form action="addTask.jsp" method="POST" name= "Add Task">
-					 <p><a href="addTask.jsp">Add Task</a></p>
+			<p><a href="addTask.jsp">Add Task</a></p>
 			</form>
 </body>
 </html>

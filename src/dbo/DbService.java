@@ -44,7 +44,7 @@ public class DbService {
 		}
 	
 	
-	public void deleteTask(int id) throws SQLException{
+	public void deleteTask(int id) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("delete from TASK where id=?");
             preparedStatement.setInt(1, id);
@@ -56,11 +56,12 @@ public class DbService {
 	}
 	
 	
-     public Set<Task> getAllTask() {
+     public Set<Task> getAllTask(int olimpId) {
 		    	Set<Task> tasks = new LinkedHashSet <Task>();
 		        try {
-		            Statement statement = connection.createStatement();
-		            ResultSet rs = statement.executeQuery("select * from TASK");
+		        	PreparedStatement prepareStatement = connection.prepareStatement("select * from TASK where olimpId=?");
+		            prepareStatement.setInt(1, olimpId);
+		            ResultSet rs = prepareStatement.executeQuery();
 		            while (rs.next()) {
 		                Task task = new Task();
 		                task.setId(rs.getInt("id"));

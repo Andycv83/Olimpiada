@@ -26,25 +26,27 @@
             </tr>
  <%		
 	DbService dbs = new DbService() ;
-	Set<Task> tasks = dbs.getAllTask();
+	Set<Task> tasks = dbs.getAllTask(1);
+	
 %>	
 <%	for(Task t : tasks){ %>
 		<tr>	
              <th><%=t.getId() %></th>
              <th><%=t.getDescription()%></th>
-             <th><%=t.getOlimpId()%></th>			
-				
+             <form action="/editTask.jsp">
+             <th>
+             		<input type="text" readonly="readonly" name="olimpId" value=<%=t.getOlimpId()%>>
+             </th>				
 			 <th>
-			    <form action="/editTask.jsp">
-					<input type=hidden name="idTask" value="<%=t.getId() %>">
+					<input type=hidden name="taskId" value="<%=t.getId() %>">
 					<input type="submit" value="edit">
 				</form>				
               </th>
               
               <th>
-                <form name="delete"  action ="/deleteTaskController" method = "GET" >  	
+                <form action ="/deleteTaskController" method = "GET" >  	
 					<td> 
-					<input name="taskId" type="hidden" value="<%=t.getId()%>">		
+					<input type="hidden" name="taskId" value="<%=t.getId()%>">		
 				    <input type="submit"  value="Delete"> 			 					    
 					</td> 
                 </form>	   	

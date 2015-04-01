@@ -35,7 +35,7 @@ public class AddTaskController extends HttpServlet {
             dbs.addTask(task);
             
         RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
-        request.setAttribute("tasks", dbs.getAllTask());
+        request.setAttribute("tasks", dbs.getAllTask(Integer.parseInt(request.getParameter("olimpId"))));
         view.forward(request, response);
 	}
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import object.Task;
 import dbo.DbService;
 
 /**
@@ -27,26 +28,23 @@ public class deleteTaskController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String forward="";
-        String action = request.getParameter("action");
-
-     //   if (action.equalsIgnoreCase("DELETE")){
-            int id = Integer.parseInt(request.getParameter("taskId"));
-            try {
-				dbs.deleteTask(id);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            forward = LIST_TASK;
-            request.setAttribute("tasks", dbs.getAllTask());
+		
+/*		Task task = new Task();
+			
+			int id= (Integer.parseInt(request.getParameter("taskId")));
+            task.setId(id);
+  */           int olimpId = (Integer.parseInt(request.getParameter("olimpId")));
+            
+           
+				dbs.deleteTask(Integer.parseInt(request.getParameter("taskId")));
+	
 /*       }
        else {
             forward = LIST_TASK;
         }
- */       RequestDispatcher view = request.getRequestDispatcher(forward);
-        view.forward(request, response);
+ */         RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
+ 			request.setAttribute("tasks", dbs.getAllTask(Integer.parseInt(request.getParameter("olimpId"))));
+ 			view.forward(request, response);
 	}
 
 }

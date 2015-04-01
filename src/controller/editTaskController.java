@@ -19,7 +19,6 @@ public class editTaskController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static String LIST_TASK = "/listTask.jsp";
-	private static String EDIT = "/editTask.jsp";
 	private DbService dbs;
 	
     public editTaskController() {
@@ -43,7 +42,7 @@ public class editTaskController extends HttpServlet {
         dbs.updateTask(task);
             
         RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
-        request.setAttribute("tasks", dbs.getAllTask());
+        request.setAttribute("tasks", dbs.getAllTask(Integer.parseInt(request.getParameter("olimpId"))));
         view.forward(request, response);
 	}
         

@@ -28,25 +28,23 @@
 %>	
 <%		for(Olimpiad o : allOlimpiad){ %>		
 			 <tr>
-			 	
-                <th><%=o.getId() %></th>
-                <th><a href="listTask.jsp"><%=o.getName()%></a></th>
+                <th> <%=o.getId()%></th>                 
+                <th> <%=o.getName()%></th>
                 <th><%=o.getStart()%></th>
-                <th><%=o.getEnd()%></th>
-                <th colspan=1>EDIT</th>
-             </tr>
-               <% }%>
+                <th><%=o.getEnd()%></th>                 
+              	<th>
+                	<form action="/olimpiadController" method="get">
+						<input type=hidden name="olimpId" value="<%=o.getId()%>">
+						<input type="submit" value="edit">					
+					</form>
+				</th> 
+				<% }%>
+			</tr>	 
       <table/>
-</form>
-     
-     <form action="olimpiadController" method = "GET">
-     
-     
-     
-    </form>      
+</form>     
+		<form name="add" action= "/olimpiadController" method= "post">	
+		 	
                 <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="button1()">    	
-            	<a href="http://google.com.ua">Link</a>
-            	
-      </form>    	
+        </form>    	  	
 </body>
 </html>

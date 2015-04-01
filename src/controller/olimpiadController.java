@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,10 +33,29 @@ public class olimpiadController extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.getParameter("idOlimp");
+		
+        RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
+        request.setAttribute("olimps", dbs.getAllOlimpiad());
+        view.forward(request, response);
+		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+		
+		Olimpiad olimpiad = new Olimpiad();
+		
+		olimpiad.setId(Integer.parseInt(request.getParameter("id")));
+		olimpiad.setName(request.getParameter("name"));
+		olimpiad.setStart(new Date());
+		olimpiad.setEnd(new Date());
+		
 
-	}
+            dbs.addOlimpiad(olimpiad);
+            
+        RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
+        request.setAttribute("olimps", dbs.getAllOlimpiad());
+        view.forward(request, response);
+	}	
+
 }

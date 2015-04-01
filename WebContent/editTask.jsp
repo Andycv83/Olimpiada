@@ -10,7 +10,7 @@
 <body>
 	 <form method="GET" action="/editTaskController">
     		
-Task ID :     <input type ="text" readonly="readonly" name = "idTask" value="<%= request.getParameter("idTask")%>" > <br > 
+Task ID :     <input type ="text" readonly="readonly" name = "taskId" value="<%= request.getParameter("taskId")%>" > <br > 
 Description : <input type="text" name="description" > <br /> 
 Olimp Id :    <input type="text" name="olimpId"> <br /> 
                <input type="submit" value="Submit" />         

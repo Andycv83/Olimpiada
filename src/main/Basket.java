@@ -17,7 +17,7 @@ import object.*;
 import dbo.DbService;
 
 
-public class Main {
+public class Basket {
 	
 	private static final String QUESTION_XML = "./file/Olimp/question.xml";
 

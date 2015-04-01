@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
+<%@ page import = "javax.servlet.http.HttpSession" %>
 <%@ page import="java.util.*" %> 
 <%@ page import="dbo.DbService" %> 
 <%@ page import="object.*" %>
@@ -26,14 +26,16 @@
             </tr>
  <%		
 	DbService dbs = new DbService() ;
-	Set<Task> tasks = dbs.getAllTask(1);
+ HttpSession session2 = request.getSession(false);
+ int id = (Integer) session2.getAttribute("olimpId");
+	Set<Task> tasks = dbs.getAllTask(id);
 	
 %>	
 <%	for(Task t : tasks){ %>
 		<tr>	
              <th><%=t.getId() %></th>
              <th><%=t.getDescription()%></th>
-             <form action="/editTask.jsp">
+             <form action="/editTask.jsp">             
              <th>
              		<input type="text" readonly="readonly" name="olimpId" value=<%=t.getOlimpId()%>>
              </th>				

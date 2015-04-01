@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import object.Olimpiad;
 import object.Task;
@@ -33,7 +34,9 @@ public class olimpiadController extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getParameter("idOlimp");
+		HttpSession session = request.getSession();
+		int id = Integer.parseInt(request.getParameter("olimpId"));
+		session.setAttribute("olimpId", id);
 		
         RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
         request.setAttribute("olimps", dbs.getAllOlimpiad());

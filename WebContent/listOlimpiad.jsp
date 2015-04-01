@@ -28,7 +28,7 @@
 %>	
 <%		for(Olimpiad o : allOlimpiad){ %>		
 			 <tr>
-                <th> <%=o.getId()%></th>                 
+                <th>  <%=o.getId()%></th>                 
                 <th> <%=o.getName()%></th>
                 <th><%=o.getStart()%></th>
                 <th><%=o.getEnd()%></th>                 
@@ -44,7 +44,7 @@
 </form>     
 		<form name="add" action= "/olimpiadController" method= "post">	
 		 	
-                <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="button1()">    	
+                <INPUT TYPE="BUTTON" VALUE="Add new Olimpiad" ONCLICK="">    	
         </form>    	  	
 </body>
 </html>

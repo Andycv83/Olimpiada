@@ -21,8 +21,8 @@
                 <th>id</th>
                 <th>description</th>
                 <th>olimpiadId</th>
-                <th colspan=1></th>
-                <th colspan=1></th>                
+                <th></th>
+    <!--             <th colspan=1></th>      -->           
             </tr>
  <%		
 	DbService dbs = new DbService() ;
@@ -33,26 +33,29 @@
 %>	
 <%	for(Task t : tasks){ %>
 		<tr>	
-             <th><%=t.getId() %></th>
-             <th><%=t.getDescription()%></th>
-             <form action="/editTask.jsp">             
-             <th>
-             		<input type="text" readonly="readonly" name="olimpId" value=<%=t.getOlimpId()%>>
-             </th>				
-			 <th>
-					<input type=hidden name="taskId" value="<%=t.getId() %>">
+             <td><%=t.getId() %></td>
+             <td><%=t.getDescription()%></td>
+             <td><%=t.getOlimpId()%></td>
+             <td>
+             	<form action="/editTask.jsp">             
+            
+             		<input type="hidden" name="olimpId" value=<%=t.getOlimpId()%>>
+        			 <input type=hidden name="taskId" value="<%=t.getId() %>">
 					<input type="submit" value="edit">
-				</form>				
-              </th>
-              
-              <th>
-                <form action ="/deleteTaskController" method = "GET" >  	
-					<td> 
+			   		
+				</form>	
+				<form action ="/deleteTaskController" method = "GET" >  	
+					
 					<input type="hidden" name="taskId" value="<%=t.getId()%>">		
 				    <input type="submit"  value="Delete"> 			 					    
-					</td> 
-                </form>	   	
-             </th>	
+					
+                </form>	
+             </td>
+             			
+                         
+              
+                   	
+             
                   
        </tr>
                <% }%>

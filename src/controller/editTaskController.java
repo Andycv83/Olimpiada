@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import object.Task;
 import dbo.DbService;
@@ -29,20 +30,19 @@ public class editTaskController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       	
-		
-		Task task = new Task();
-		
-		int id = Integer.parseInt(request.getParameter("idTask"));        
-        task.setId(id);
+		 String forward="";
+		 HttpSession session2 = request.getSession(false);
+		 int id = (Integer) session2.getAttribute("olimpId");
+		 
+		Task task = new Task();        
+        task.setId(Integer.parseInt(request.getParameter("taskId")));
         task.setDescription(request.getParameter("description"));
-        task.setOlimpId(Integer.parseInt(request.getParameter("olimpId")));
-
-       request.setAttribute("task", task); 
+        task.setOlimpId(id);
         
         dbs.updateTask(task);
             
         RequestDispatcher view = request.getRequestDispatcher(LIST_TASK);
-        request.setAttribute("tasks", dbs.getAllTask(Integer.parseInt(request.getParameter("olimpId"))));
+        request.setAttribute("tasks", dbs.getAllTask(id));
         view.forward(request, response);
 	}
         

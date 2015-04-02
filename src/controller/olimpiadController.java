@@ -16,6 +16,8 @@ import object.Olimpiad;
 import object.Task;
 import dbo.DbService;
 import sun.rmi.server.Dispatcher;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 
 @WebServlet(urlPatterns="/olimpiadController")
 
@@ -24,11 +26,12 @@ public class olimpiadController extends HttpServlet{
 	private static String LIST_OLIMPIAD = "/listOlimpiad.jsp";
 	private static String LIST_TASK = "/listTask.jsp";
 	private DbService dbs;
-
+	private static Logger logger = Logger.getLogger(olimpiadController.class);
 
     public olimpiadController() {
         super();
         dbs= new DbService();
+        logger.info("Connect to database");
     }
 
 

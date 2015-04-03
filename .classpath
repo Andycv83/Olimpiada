@@ -12,7 +12,7 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Projects/Olimpiada/files/sqlitejdbc-v056.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrey/git/Olimpiada/files/sqlitejdbc-v056.jar"/>
 	<classpathentry kind="lib" path="files/javax.servlet-api-3.1.0.jar"/>
 	<classpathentry kind="lib" path="files/jstl.jar"/>
 	<classpathentry kind="lib" path="files/sqlitejdbc-v056.jar"/>
@@ -28,6 +28,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Projects/Olimpiada/files/log4j.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Andrey/git/Olimpiada/files/log4j.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<log4j:configuration  xmlns:log4j="http://jakarta.apache.org/log4j/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    debug="false"
+    xsi:schemaLocation="http://www.example.org/log4j log4j.xsd ">
+
+    <appender name="CONSOLE-DEBUG" class="org.apache.log4j.ConsoleAppender">
+        <param name="target" value="System.out"/>
+        <!--<param name="file" value="testFatal.log"/>-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%5p] %8d{HH:mm:ss} %60m  at %l %d{dd.MM.yyyy}%n"/>
+        </layout>
+
+        <!-- <filter class="org.apache.log4j.varia.LevelRangeFilter">
+          <param name="LevelMin" value="ALL"/>
+          <param name="LevelMax" value="INFO"/>
+        </filter> -->
+    </appender>
+
+    <appender name="LOG-FILE-APPENDER" class="org.apache.log4j.FileAppender">
+        <param name="file" value="testDebug.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%5p] %8d{HH:mm:ss} %60m  at %l %d{dd.MM.yyyy}%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG"/>
+            <param name="LevelMax" value="ERROR"/>
+        </filter>
+
+    </appender>
+
+    <appender name="LOG-FILE-APPENDER-FATAL" class="org.apache.log4j.FileAppender">
+        <param name="file" value="testFatal.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%5p] %8d{HH:mm:ss} %60m  at %l %d{dd.MM.yyyy}%n"/>
+        </layout>
+
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="FATAL"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+
+    </appender>
+
+    <root>
+        <!--<priority value="INFO"/>-->
+        <appender-ref ref="CONSOLE-DEBUG"/>
+        <appender-ref ref="LOG-FILE-APPENDER"/>
+        <appender-ref ref="LOG-FILE-APPENDER-FATAL"/>
+    </root>
+
+</log4j:configuration>

@@ -7,7 +7,7 @@ import java.util.Set;
 import object.*;
 import util.connectDB;
 
-public class DbService {
+public class DbService implements Service {
 		
 	private Connection connection;
 

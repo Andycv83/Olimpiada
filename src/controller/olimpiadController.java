@@ -16,7 +16,6 @@ import object.Olimpiad;
 import object.Task;
 import dbo.DbService;
 import sun.rmi.server.Dispatcher;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 @WebServlet(urlPatterns="/olimpiadController")

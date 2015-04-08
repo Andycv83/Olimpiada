@@ -1,16 +1,19 @@
 package object;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder = {"id", "description", "level" , "olimpId"})
+import org.hibernate.annotations.*;
 
-@XmlRootElement
+@object
+@Table( name = "TASK" )
 public class Task {
 
 	private int id;
-	private int olimpId;	
+	@Column(name = "OLIMPID")    
+	private int olimpId;	 
 	private String description;	
 	private Level level;
 	
@@ -18,10 +21,8 @@ public class Task {
 		beginer,
 		expert		
 	}; 
-	
-	
-	@XmlElement(name = "question")
-	
+
+	@Id
 	 public int getId() {
 		return id;
 	}
@@ -37,6 +38,7 @@ public class Task {
 		this.level = level;
 	}
 	 
+	 @Column(name = "DESCRIPRTION")   
 	 public String getDescription() {
 		return description;
 	}

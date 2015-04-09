@@ -9,18 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dbo.DbService;
+import dbo.HibernateService;
 import object.Task;
 
 @WebServlet("/AddTaskController")
 public class AddTaskController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String LIST_TASK = "/listTask.jsp";
-	private DbService dbs;
+	private HibernateService dbs;
 
     public AddTaskController() {
         super();
-        dbs=new DbService();     
+        dbs=new HibernateService();     
     }
 
 

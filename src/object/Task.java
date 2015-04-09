@@ -1,16 +1,14 @@
 package object;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-import org.hibernate.annotations.*;
-
-@object
+@Entity
 @Table( name = "TASK" )
 public class Task {
 
+	@Id
 	private int id;
 	@Column(name = "OLIMPID")    
 	private int olimpId;	 
@@ -22,7 +20,7 @@ public class Task {
 		expert		
 	}; 
 
-	@Id
+	
 	 public int getId() {
 		return id;
 	}

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import object.Task;
-import dbo.DbService;
+import dbo.HibernateService;
 
 /**
  * Servlet implementation class deleteTaskController
@@ -21,11 +21,11 @@ import dbo.DbService;
 public class deleteTaskController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String LIST_TASK = "/listTask.jsp";
-	private DbService dbs;
+	private HibernateService dbs;
        
     public deleteTaskController() {
         super();
-        dbs=new DbService();
+        dbs = new HibernateService(); 
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

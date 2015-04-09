@@ -15,9 +15,10 @@ import javax.xml.bind.Unmarshaller;
 
 import object.*;
 import dbo.DbService;
+import dbo.HibernateService;
 
 
-public class Basket {
+public class Main {
 	
 	private static final String QUESTION_XML = "./file/Olimp/question.xml";
 
@@ -64,16 +65,16 @@ public class Basket {
 		task4.setOlimpId(1);
 		taskCollection.add(task4);
 		
-		Task task5= new Task();
-		task5.setId(5);
-		task5.setDescription("One more task number # 5");
-		task5.setOlimpId(1);
-		taskCollection.add(task5);
+		Task task55= new Task();
+		task55.setId(55);
+		task55.setDescription("555555555555555555555555555");
+		task55.setOlimpId(1);
+		taskCollection.add(task55);
 				
 		biology.setTasksList(taskCollection);	
 		
-		
-		db.addTask(task1);
+		HibernateService hs = new HibernateService();
+		hs.addTask(task55);
 		
 	/*	
 		db.getAllOlimpiad();

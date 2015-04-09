@@ -1,52 +1,59 @@
 package dbo;
 
+import java.sql.Connection;
 import java.util.Set;
+
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
 
 import object.Olimpiad;
 import object.Task;
+import util.HibernateUtil;
+import util.connectDB;
+import static util.HibernateUtil.getSessionFactory;
 
 public class HibernateService implements Service{
-
-	@Override
+			
+	   Session sessionFactory = HibernateUtil.getSessionFactory().getCurrentSession();
+	
 	public void addTask(Task task) {
-		// TODO Auto-generated method stub
+	sessionFactory.getCurrentSession().save(task);
 		
 	}
 
-	@Override
+
 	public void updateTask(Task task) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().update(task);
 		
 	}
 
-	@Override
+
 	public void deleteTask(int id) {
-		// TODO Auto-generated method stub
+		Task task = (Task)sessionFactory.getCurrentSession().load(Task.class ,id);
+		sessionFactory.getCurrentSession().delete(task);
 		
 	}
 
-	@Override
 	public Set<Task> getAllTask(int olimpId) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Set<Task>)sessionFactory.getCurrentSession().createQuery("from Task").list();
 	}
 
-	@Override
+
 	public Task getTaskById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Task task =(Task) sessionFactory.getCurrentSession().load(Task.class, id);
+		return task;
 	}
 
-	@Override
+
 	public void addOlimpiad(Olimpiad olimpiad) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().save(olimpiad);
 		
 	}
 
-	@Override
+
 	public Set<Olimpiad> getAllOlimpiad() {
-		// TODO Auto-generated method stub
-		return null;
+		return (Set<Olimpiad>)sessionFactory.getCurrentSession().createQuery("from Olimpiad").list();
 	}
 
 }
